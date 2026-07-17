@@ -1,0 +1,218 @@
+.rsvp-form {
+  position: relative;
+  width: min(520px, 100%);
+  margin-inline: auto;
+  padding: 2.5rem 1.75rem 2.25rem;
+  background: linear-gradient(165deg, #fffdfb 0%, #fff5f0 100%);
+  border: 1px solid rgba(200, 16, 46, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  overflow: hidden;
+}
+
+.rsvp-form__cloud {
+  position: absolute;
+  right: -20px;
+  bottom: 40px;
+  width: 140px;
+  color: var(--cny-red);
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+.rsvp-form__corner {
+  position: absolute;
+  width: 48px;
+  color: var(--cny-red);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.rsvp-form__corner--tl {
+  top: 10px;
+  left: 10px;
+}
+
+.rsvp-form__corner--br {
+  bottom: 10px;
+  right: 10px;
+  transform: rotate(180deg);
+}
+
+.rsvp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  position: relative;
+  z-index: 1;
+}
+
+.rsvp-field label,
+.rsvp-field legend {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--cny-red-deep);
+  letter-spacing: 0.02em;
+}
+
+.rsvp-field input,
+.rsvp-field textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1.5px solid rgba(200, 16, 46, 0.2);
+  background: white;
+  color: var(--cny-ink);
+  border-radius: 2px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  outline: none;
+  resize: vertical;
+}
+
+.rsvp-field input::placeholder,
+.rsvp-field textarea::placeholder {
+  color: var(--cny-muted);
+  opacity: 0.55;
+}
+
+.rsvp-field input:focus,
+.rsvp-field textarea:focus {
+  border-color: var(--cny-red);
+  box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.12);
+}
+
+.rsvp-field input[aria-invalid='true'] {
+  border-color: var(--cny-red-bright);
+}
+
+.rsvp-error {
+  font-size: 0.8rem;
+  color: var(--cny-red);
+}
+
+.rsvp-attendance {
+  border: none;
+}
+
+.rsvp-attendance__options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.rsvp-choice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 0.75rem;
+  border: 1.5px solid rgba(200, 16, 46, 0.2);
+  background: white;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.rsvp-choice input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.rsvp-choice.is-selected {
+  border-color: var(--cny-red);
+  background: var(--cny-red);
+  color: white;
+}
+
+.rsvp-choice:hover:not(.is-selected) {
+  border-color: var(--cny-red);
+  background: var(--cny-red-soft);
+}
+
+.rsvp-submit {
+  position: relative;
+  z-index: 1;
+  margin-top: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, var(--cny-red-bright), var(--cny-red-deep));
+  color: white;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  transition:
+    transform 0.25s var(--ease-out-expo),
+    box-shadow 0.25s ease;
+  box-shadow: 0 10px 28px rgba(200, 16, 46, 0.3);
+}
+
+.rsvp-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(200, 16, 46, 0.4);
+}
+
+.rsvp-submit:active {
+  transform: translateY(0);
+}
+
+.rsvp-submit__icon {
+  width: 22px;
+  height: 22px;
+  color: white;
+}
+
+.rsvp-success {
+  width: min(520px, 100%);
+  margin-inline: auto;
+  padding: 3.5rem 2rem;
+  text-align: center;
+  background: linear-gradient(165deg, #fffdfb 0%, #fff5f0 100%);
+  border: 1px solid rgba(200, 16, 46, 0.15);
+  animation: fade-up 0.6s var(--ease-out-expo) both;
+}
+
+.rsvp-success__xi {
+  display: block;
+  font-family: var(--font-chinese);
+  font-size: 3.5rem;
+  color: var(--cny-red);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.rsvp-success__title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--cny-red-deep);
+  margin-bottom: 0.75rem;
+}
+
+.rsvp-success__text {
+  color: var(--cny-muted);
+  font-size: 1.05rem;
+  max-width: 28ch;
+  margin-inline: auto;
+}
+
+@media (max-width: 480px) {
+  .rsvp-attendance__options {
+    grid-template-columns: 1fr;
+  }
+
+  .rsvp-form {
+    padding: 2rem 1.25rem;
+  }
+}
